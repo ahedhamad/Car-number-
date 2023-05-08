@@ -37,11 +37,13 @@ function plateRecognition(im)
         ow = length(Iprops(i).Image(1,:));
         oh = length(Iprops(i).Image(:,1));
         if ow<(h/2) & oh>(h/3)
-            letter=Letter_detection(Iprops(i).Image); % Reading the letter corresponding the binary image 'N'.
+            letter=LetterDetection(Iprops(i).Image); % Reading the letter corresponding the binary image 'N'.
             noPlate=[noPlate letter]; % Appending every subsequent character in noPlate variable.
         end
     end
     
     % Print the final license plate number
     fprintf('noPlate = %s\n', noPlate);
+    searchNumberPlate(noPlate, 'number_plates.txt');
+
 end
