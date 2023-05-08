@@ -24,8 +24,8 @@ function searchNumberPlate(noPlate, filename)
     
     % Print the result
     if found
-        fprintf('Yes\n');
+        fprintf('Number Founded ! Yes\n');
     else
-        fprintf('No\n');
+        fprintf('Number Not Found :( No\n');
     end
 end
