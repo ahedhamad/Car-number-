@@ -1,7 +1,7 @@
 function processHorizontal(I)
     % Convert image to grayscale
     Igray = rgb2gray(I);
-    [rows cols] = size(Igray);
+    [rows, cols] = size(Igray);
 
     %% Dilate and Erode Image in order to remove noise
     Idilate = Igray;
@@ -30,6 +30,7 @@ function processHorizontal(I)
     disp('Processing Edges Horizontally...');
     max_horz = 0;
     maximum = 0;
+    horz1 = zeros(1, cols);
     for i = 2:cols
         sum = 0;
         for j = 2:rows
@@ -85,10 +86,11 @@ function processHorizontal(I)
                 I(j, i) = 0;
             end
         end
-     end
-subplot(3,1,3);
-plot (horz);
-title('Histogram after Filtering');
-xlabel('Column Number ->');
-ylabel('Difference ->');
-processVertical(I,rows,cols, horz, max_horz)
+    end
+    subplot(3,1,3);
+    plot (horz);
+    title('Histogram after Filtering');
+    xlabel('Column Number ->');
+    ylabel('Difference ->');
+    processVertical(I,rows,cols, horz, max_horz)
+end
